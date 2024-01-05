@@ -142,9 +142,12 @@ console.log("Problem 3")
   }
   
 
-// PROBLEM 4
 
-class Node4 {
+
+
+  // PROBLEM 4
+
+  class Node4 {
     constructor(val) {
       this.val = val;
       this.next = null;
@@ -190,4 +193,3 @@ class Node4 {
     console.log(current4.val);
     current4 = current4.next;
   }
-  
