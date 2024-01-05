@@ -23,7 +23,7 @@ class Node {
       tail = tail.next;
     }
   
-    // Append remaining nodes from either list
+    // Append remaining node3s from either list
     tail.next = linked_list1 || linked_list2;
   
     return dummyHead.next;
@@ -65,8 +65,8 @@ class Node {
     let next;
   
     while (current2) {
-      next = current2.next;  // Store the next node
-      current2.next = prev;  // Reverse the current node's pointer
+      next = current2.next;  // Store the next node3
+      current2.next = prev;  // Reverse the current3 node3's pointer
       prev = current2;       // Move pointers one step forward
       current2 = next;
     }
@@ -97,3 +97,97 @@ class Node {
 
 //   PROBLEM 3
 
+class Node3 {
+    constructor(val) {
+      this.val = val;
+      this.next = null;
+    }
+  }
+  
+  function removeElements(head, value) {
+    let dummyHead = new Node3(null);
+    dummyHead.next = head;
+    let current3 = dummyHead;
+  
+    while (current3.next) {
+      if (current3.next.val === value) {
+        current3.next = current3.next.next; // Skip over the node3 to be removed
+      } else {
+        current3 = current3.next; // Move to the next node3
+      }
+    }
+  
+    return dummyHead.next; // Return the modified list's head
+  }
+  
+  // Example usage:
+  const head2 = new Node3(1);
+  head2.next = new Node3(2);
+  head2.next.next = new Node3(6);
+  head2.next.next.next = new Node3(3);
+  head2.next.next.next.next = new Node3(4);
+  head2.next.next.next.next.next = new Node3(5);
+  head2.next.next.next.next.next.next = new Node3(6);
+  
+  const valueToRemove = 6;
+  const modifiedList = removeElements(head2, valueToRemove);
+  
+console.log("Problem 3")
+
+  // Print the modified list
+  let current3 = modifiedList;
+  while (current3) {
+    console.log(current3.val);
+    current3 = current3.next;
+  }
+  
+
+// PROBLEM 4
+
+class Node4 {
+    constructor(val) {
+      this.val = val;
+      this.next = null;
+    }
+  }
+  
+  function swapPairs(head) {
+    if (!head || !head.next) {
+      return head; // Base case: empty or single-node list
+    }
+  
+    let newHead = head.next; // Start with the second node as the new head
+    let prev = new Node(null); // Dummy node to keep track of previous pairs
+  
+    while (head && head.next) {
+      let nextPair = head.next.next; // Store the next pair to connect later
+  
+      // Swap the current pair:
+      head.next.next = head;
+      prev.next = head.next;
+  
+      // Move pointers to the next pair:
+      head = nextPair;
+      prev = prev.next.next;
+    }
+  
+    return newHead;
+  }
+  
+  // Example usage:
+  const head3 = new Node4(1);
+  head3.next = new Node4(2);
+  head3.next.next = new Node4(3);
+  head3.next.next.next = new Node4(4);
+  
+  const swappedList = swapPairs(head);
+
+  console.log("Problem 4")
+  
+  // Print the swapped list
+  let current4 = swappedList;
+  while (current4) {
+    console.log(current4.val);
+    current4 = current4.next;
+  }
+  
